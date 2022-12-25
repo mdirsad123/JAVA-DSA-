@@ -1,21 +1,26 @@
 package sorting_algorithm_practice;
 public class insertion_sort {
-    public static void bubble_sort(int arr[]){
+    public static void printArr(int arr[]){
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]+" ");
         }
     }
-    public static void main(String[] args) {
-        int arr[]={8,7,3,1,2};
+    public static void insertionSort(int arr[]){
         for (int i = 1; i < arr.length; i++) {
-            int current=arr[i];
-            int j=i-1;
-            while(j>=0 && current<arr[j]){
-                arr[j+1]=arr[j];
-                j--;
+            int curr=arr[i];
+            int prev=i-1;
+            while (prev>=0 && arr[prev]>curr){
+                arr[prev+1]=arr[prev];
+                prev--;
+
             }
-            arr[j+1]=current;
+            arr[prev+1]=curr;
         }
-        bubble_sort(arr);
+
+    }
+    public static void main(String[] args) {
+        int arr[]={5,4,3,2,8,9};
+        insertionSort(arr);
+        printArr(arr);
     }
 }
