@@ -1,16 +1,17 @@
 package java_placement_course_alpha2;
 
-public class Tree_heightOfTree {
+public class Tree_DiameterOfTree {
     public static class Node{
         int data;
-        Node left,right;
+        Node left;
+        Tree_heightOfTree.Node right;
         Node(int data){
             this.data=data;
             this.left=null;
             this.right=null;
         }
     }
-    public static int height(Node root){
+    public static int height(Tree_heightOfTree.Node root){
         if (root==null){
             return 0;
         }
@@ -18,23 +19,37 @@ public class Tree_heightOfTree {
         int rh=height(root.right);
         return Math.max(lh,rh)+1;
     }
-    public static int count(Node root){
+    public static int count(Tree_heightOfTree.Node root){
         if (root==null){
             return 0;
         }
-        int leftCount=height(root.left);
-        int rightCount=height(root.right);
+        int leftCount=count(root.left);
+        int rightCount=count(root.right);
         return leftCount+rightCount+1;
     }
-    public static int sum(Node root){
+    public static int sum(Tree_heightOfTree.Node root){
         if (root==null){
             return 0;
         }
-        int lh=height(root.left);
-        int rh=height(root.right);
+        int lh=sum(root.left);
+        int rh=sum(root.right);
         return lh+rh+ root.data;
     }
+    public static int diameter(Node root){
+        if (root==null){
+            return 0;
+        }
+        int ld=diameter(root.left);
+//        int lht=height(root.left)
+//        int rd=diameter(root.right);
+        int rht=height(root.right);
 
+//        int selfDiam=lht+rht+1;
+//
+//        return Math.max(selfDiam,Math.max(ld,rd));
+        return 0;
+
+    }
     public static void main(String[] args) {
         /*
                     1
@@ -45,12 +60,7 @@ public class Tree_heightOfTree {
          */
         Node root=new Node(1);
         root.left=new Node(2);
-        root.right=new Node(3);
-        root.left.left=new Node(4);
-        root.left.right=new Node(5);
-        root.right.left=new Node(6);
-        root.right.right=new Node(7);
 
-        count(root);
+        System.out.println(diameter(root));
     }
 }
