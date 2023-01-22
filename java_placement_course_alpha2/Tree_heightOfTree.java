@@ -22,8 +22,8 @@ public class Tree_heightOfTree {
         if (root==null){
             return 0;
         }
-        int leftCount=height(root.left);
-        int rightCount=height(root.right);
+        int leftCount=count(root.left);
+        int rightCount=count(root.right);
         return leftCount+rightCount+1;
     }
     public static int sum(Node root){
@@ -51,6 +51,6 @@ public class Tree_heightOfTree {
         root.right.left=new Node(6);
         root.right.right=new Node(7);
 
-        count(root);
+        System.out.println(count(root));
     }
 }

@@ -1,5 +1,6 @@
 package java_placement_course_alpha2;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -46,6 +47,7 @@ public class Tree_binaryTree {
         inOrder(root.right);
     }
     public static void postOrder(Node root){
+        ArrayList<Integer> result=new ArrayList<>();
         if(root==null){
             return;
         }
